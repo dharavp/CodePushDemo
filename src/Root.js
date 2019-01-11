@@ -10,6 +10,7 @@ import {
     createReactNavigationReduxMiddleware,
     createNavigationReducer,
 } from 'react-navigation-redux-helpers';
+import codePush from "react-native-code-push";
 
 
 // Note: createReactNavigationReduxMiddleware must be run before reduxifyNavigator
@@ -32,8 +33,15 @@ const store = createStore(
     rootReducer,
     compose(applyMiddleware(thunk)),
 );
+let codePushOptions = { checkFrequency: codePush.CheckFrequency.ON_APP_RESUME };
 
-export default class Root extends React.Component {
+class Root extends React.Component {
+    componentWillMount() {
+        codePush.sync({
+            updateDialog: false,
+            installMode: codePush.InstallMode.IMMEDIATE
+        });
+    }
     render() {
         return (
             <Provider store={store}>
@@ -42,3 +50,5 @@ export default class Root extends React.Component {
         );
     }
 }
+Root = codePush(codePushOptions)(Root);
+export default Root;
