@@ -11,7 +11,7 @@ export default class Home extends Component {
                 justifyContent: 'center'
             }}>
                 <Text>
-                    Home screen
+                    Second screen
                 </Text>
             </View>
         );
