@@ -19,7 +19,8 @@ export default class Splash extends Component {
                         width: 100, height: 100,
                         justifyContent: 'center',
                         alignItems: 'center',
-                        backgroundColor: 'green'
+                        backgroundColor: 'green',
+                        borderRadius: 50
                     }}>
                         <Text style={{ color: 'white' }}>Click Me</Text>
                     </View>
