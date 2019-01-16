@@ -116,13 +116,22 @@ android {
             include "armeabi-v7a", "x86"
         }
     }
+    lintOptions {
+        tasks.lint.enabled = false
+    }
     signingConfigs {
         debug {
-            storeFile file("../keystores/debug.keystore")
+            storeFile file("../keystores/codepushdemo_keystore.jks")
             storePassword "android"
-            keyAlias "androiddebugkey"
+            keyAlias "android"
             keyPassword "android"
         }
+//        debug {
+//            storeFile file("../keystores/debug.keystore")
+//            storePassword "android"
+//            keyAlias "androiddebugkey"
+//            keyPassword "android"
+//        }
     }
 
     buildTypes {
@@ -152,8 +161,8 @@ android {
 }
 
 dependencies {
-    compile project(':react-native-code-push')
-    compile project(':react-native-gesture-handler')
+    implementation project(':react-native-code-push')
+    implementation project(':react-native-gesture-handler')
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation "com.android.support:appcompat-v7:${rootProject.ext.supportLibVersion}"
     implementation "com.facebook.react:react-native:+"  // From node_modules
