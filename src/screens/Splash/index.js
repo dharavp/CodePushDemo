@@ -22,7 +22,7 @@ export default class Splash extends Component {
                         backgroundColor: 'green',
                         borderRadius: 50
                     }}>
-                        <Text style={{ color: '#000' }}>Brijeshbhai</Text>
+                        <Text style={{ color: '#000' }}>click on me</Text>
                     </View>
                 </TouchableOpacity>
             </View>
